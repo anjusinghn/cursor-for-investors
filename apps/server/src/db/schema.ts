@@ -1,0 +1,38 @@
+export const schemaStatements = [
+  `CREATE TABLE IF NOT EXISTS companies (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    sector TEXT,
+    stage TEXT,
+    geography TEXT,
+    website TEXT,
+    description TEXT,
+    foundedDate TEXT,
+    employeeCount INTEGER,
+    fundingTotal REAL,
+    createdAt TEXT NOT NULL,
+    updatedAt TEXT NOT NULL
+  )`,
+  `CREATE TABLE IF NOT EXISTS funds (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    vintageYear INTEGER,
+    targetSize REAL,
+    strategy TEXT,
+    createdAt TEXT NOT NULL
+  )`,
+  `CREATE TABLE IF NOT EXISTS theses (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    fundId TEXT,
+    sectors TEXT NOT NULL,
+    stages TEXT NOT NULL,
+    geographies TEXT NOT NULL,
+    ownershipTargetMin REAL,
+    ownershipTargetMax REAL,
+    preferredFounderPatterns TEXT NOT NULL,
+    antiPatterns TEXT NOT NULL,
+    diligenceQuestions TEXT NOT NULL,
+    active INTEGER NOT NULL DEFAULT 1,
+    createdAt TEXT NOT NULL,
+    updatedAt TEXT NOT NULL,
