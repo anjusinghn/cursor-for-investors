@@ -51,3 +51,55 @@ export function ThesisForm({
     <form
       className="form-grid"
       onSubmit={async (event) => {
+        event.preventDefault();
+        await onSave(form);
+      }}
+    >
+      <div className="field">
+        <label>Name</label>
+        <input
+          className="input"
+          onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
+          value={form.name ?? ""}
+        />
+      </div>
+      <div className="meeting-grid">
+        <div className="field">
+          <label>Sectors</label>
+          <input
+            className="input"
+            onChange={(event) => setForm((current) => ({ ...current, sectors: splitValues(event.target.value) }))}
+            value={(form.sectors ?? []).join(", ")}
+          />
+        </div>
+        <div className="field">
+          <label>Geographies</label>
+          <input
+            className="input"
+            onChange={(event) => setForm((current) => ({ ...current, geographies: splitValues(event.target.value) }))}
+            value={(form.geographies ?? []).join(", ")}
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label>Stages</label>
+        <input
+          className="input"
+          onChange={(event) => setForm((current) => ({ ...current, stages: splitValues(event.target.value) }))}
+          value={(form.stages ?? []).join(", ")}
+        />
+      </div>
+      <div className="meeting-grid">
+        <div className="field">
+          <label>Ownership Target Min</label>
+          <input
+            className="input"
+            min="0"
+            onChange={(event) =>
+              setForm((current) => ({ ...current, ownershipTargetMin: Number(event.target.value) }))
+            }
+            step="0.01"
+            type="number"
+            value={form.ownershipTargetMin ?? 0}
+          />
+        </div>
