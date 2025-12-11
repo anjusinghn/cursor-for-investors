@@ -23,3 +23,28 @@ export function stringifyJsonFields(record: Record<string, unknown>, jsonFields:
     if (value !== undefined) {
       next[field] = JSON.stringify(value ?? null);
     }
+  }
+
+  return next;
+}
+
+export function parseJsonFields<T extends Record<string, unknown>>(record: T, jsonFields: string[]) {
+  for (const field of jsonFields) {
+    const value = record[field];
+    if (typeof value === "string" && value.length > 0) {
+      try {
+        record[field] = JSON.parse(value);
+      } catch {
+        record[field] = value;
+      }
+    } else if (value == null) {
+      record[field] = Array.isArray(value) ? [] : value;
+    }
+  }
+
+  return record;
+}
+
+export function quoteIdentifier(identifier: string) {
+  return `"${identifier.replaceAll('"', '""')}"`;
+}
