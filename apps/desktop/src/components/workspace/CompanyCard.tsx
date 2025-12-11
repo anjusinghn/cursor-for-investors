@@ -23,3 +23,27 @@ export function CompanyCard({
           <div className="muted">Sector</div>
           <div>{company.sector ?? "—"}</div>
         </div>
+        <div>
+          <div className="muted">Geography</div>
+          <div>{company.geography ?? "—"}</div>
+        </div>
+        <div>
+          <div className="muted">Funding</div>
+          <div>{formatCurrency(company.fundingTotal)}</div>
+        </div>
+        <div>
+          <div className="muted">Employees</div>
+          <div>{company.employeeCount ?? "—"}</div>
+        </div>
+      </div>
+      <p className="muted" style={{ marginTop: 12 }}>
+        {company.description ?? "No company summary recorded."}
+      </p>
+      {thesis ? (
+        <div className="badge" style={{ marginTop: 12 }}>
+          Thesis: {thesis.name}
+        </div>
+      ) : null}
+    </section>
+  );
+}
