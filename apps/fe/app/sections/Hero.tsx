@@ -34,3 +34,39 @@ export default function Hero() {
           background:
             "radial-gradient(circle, rgba(120, 119, 198, 0.15), rgba(120, 119, 198, 0.05) 40%, transparent 70%)",
           filter: "blur(80px)",
+        }}
+        animate={{
+          scale: [1, 1.08, 1],
+          opacity: [0.6, 1, 0.6],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <div className="relative z-[3]">
+        <Navbar />
+
+        <motion.div
+          style={{ y: heroTextY, opacity: heroTextOpacity }}
+          className="flex flex-col items-center text-center mt-16 md:mt-24 px-4"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0 }}
+            className="liquid-glass rounded-lg px-3 py-2 mb-6 flex items-center gap-2"
+          >
+            <span className="bg-white text-black rounded-md text-sm font-medium px-2 py-0.5">
+              Investor IDE
+            </span>
+            <span className="text-sm font-medium text-muted-foreground">
+              Cursor for investors — describe the outcome, not the workflow
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
