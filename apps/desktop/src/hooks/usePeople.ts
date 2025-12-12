@@ -17,3 +17,22 @@ export function usePerson(id?: string) {
     enabled: Boolean(id),
   });
 }
+
+export function useUpdatePerson(id: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: UpdatePersonInput) => api.people.update(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.people });
+      queryClient.invalidateQueries({ queryKey: queryKeys.person(id) });
+    },
+  });
+}
+
+export function useCreatePerson() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: CreatePersonInput) => api.people.create(payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.people }),
+  });
+}
