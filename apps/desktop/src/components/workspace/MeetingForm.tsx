@@ -52,3 +52,56 @@ export function MeetingForm({
       date: meeting.date.slice(0, 10),
       dealId: meeting.dealId,
       meetingType: meeting.meetingType,
+      rawNotes: meeting.rawNotes ?? "",
+      structuredNotes: meeting.structuredNotes,
+    });
+  }, [meeting]);
+
+  return (
+    <form
+      className="form-grid"
+      onSubmit={async (event) => {
+        event.preventDefault();
+        await onSave(form);
+      }}
+    >
+      <div className="meeting-grid">
+        <div className="field">
+          <label>Date</label>
+          <input
+            className="input"
+            onChange={(event) => setForm((current) => ({ ...current, date: event.target.value }))}
+            type="date"
+            value={form.date}
+          />
+        </div>
+        <div className="field">
+          <label>Meeting Type</label>
+          <select
+            className="select"
+            onChange={(event) =>
+              setForm((current) => ({
+                ...current,
+                meetingType: event.target.value as MeetingType,
+              }))
+            }
+            value={form.meetingType}
+          >
+            <option value="founder_call">Founder Call</option>
+            <option value="partner_meeting">Partner Meeting</option>
+            <option value="reference">Reference</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div className="field">
+        <label>Attendees</label>
+        <div className="action-row">
+          {people.map((person) => {
+            const selected = form.attendees.includes(person.id);
+            return (
+              <button
+                className={`small-action ${selected ? "active" : ""}`}
+                key={person.id}
+                onClick={(event) => {
+                  event.preventDefault();
