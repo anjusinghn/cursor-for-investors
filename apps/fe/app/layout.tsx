@@ -17,3 +17,21 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "Rixie - Cursor for Investors",
+  description:
+    "The operating system for private-market decision work. Source, evaluate, decide, and report — one workspace.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${instrumentSerif.variable} antialiased`}
+    >
+      <body>{children}</body>
+    </html>
+  );
+}
