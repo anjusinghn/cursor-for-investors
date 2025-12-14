@@ -17,3 +17,22 @@ export function useMemoById(id?: string) {
     enabled: Boolean(id),
   });
 }
+
+export function useCreateMemo() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: CreateMemoInput) => api.memos.create(payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.memos }),
+  });
+}
+
+export function useUpdateMemo(id: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: UpdateMemoInput) => api.memos.update(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.memos });
+      queryClient.invalidateQueries({ queryKey: queryKeys.memo(id) });
+    },
+  });
+}
