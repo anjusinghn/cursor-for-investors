@@ -51,3 +51,55 @@ export function BottomPanel() {
             >
               Notes
             </TabsTrigger>
+          </TabsList>
+        </div>
+
+        <TabsContent value="activity" className="tab-body m-0 p-0">
+          <div className="list-stack">
+            {ACTIVITY_ITEMS.map((item) => (
+              <div className="list-item muted" key={item.id}>
+                {item.text}
+              </div>
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="tasks" className="tab-body m-0 p-0">
+          <div className="list-stack">
+            {TASK_ITEMS.map((item) => (
+              <div
+                className="list-item"
+                key={item.id}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 8,
+                }}
+              >
+                <span
+                  style={{
+                    textDecoration: item.done ? "line-through" : "none",
+                    color: item.done ? "var(--muted-foreground)" : "inherit",
+                    fontSize: 12,
+                  }}
+                >
+                  {item.text}
+                </span>
+                <span className="muted" style={{ fontSize: 10, flexShrink: 0 }}>
+                  {item.meta}
+                </span>
+              </div>
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="notes" className="tab-body m-0 p-0">
+          <div className="empty-state">
+            <span>Quick notes will appear here</span>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </section>
+  );
+}
