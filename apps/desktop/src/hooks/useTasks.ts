@@ -17,3 +17,22 @@ export function useTask(id?: string) {
     enabled: Boolean(id),
   });
 }
+
+export function useCreateTask() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: CreateTaskInput) => api.tasks.create(payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.tasks }),
+  });
+}
+
+export function useUpdateTask(id: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: UpdateTaskInput) => api.tasks.update(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.tasks });
+      queryClient.invalidateQueries({ queryKey: queryKeys.task(id) });
+    },
+  });
+}
