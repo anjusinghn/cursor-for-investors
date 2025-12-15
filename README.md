@@ -48,3 +48,53 @@ pnpm install
 
 # run the server (port 3001)
 pnpm --filter @vc-ide/server dev
+
+# run the desktop app (opens Tauri window)
+pnpm --filter @vc-ide/desktop dev
+
+# run the landing page (port 3000)
+pnpm --filter @vc-ide/fe dev
+
+# or run everything at once
+pnpm dev
+```
+
+The server creates a local SQLite database (`neuralyn.db`) and seeds it with sample data on first run. No external database setup needed.
+
+## Domain model
+
+The core objects: **Company**, **Deal**, **Person**, **Meeting**, **Memo**, **Thesis**, **Task**, **Fund**. Deals move through stages: `sourced → first_call → diligence → ic → term_sheet → closed | passed`. Each deal links to a company, optionally to a fund and thesis, and collects meetings, memos, tasks, and people along the way.
+
+Types are defined once in `packages/shared/src/types.ts` and used by both the server and desktop app.
+
+## Project structure
+
+```
+apps/desktop/
+  src/
+    components/
+      command-bar/     Command palette (Ctrl+K)
+      layout/          Sidebar, tab area, bottom panel, status bar
+      ui/              shadcn primitives (button, dialog, tabs, etc.)
+      workspace/       Deal cards, stage columns, meeting forms
+    contexts/          Layout and workspace state providers
+    hooks/             React Query hooks for every API resource
+    lib/               API client, utility functions
+    pages/             Pipeline, deal workspace, company, person, meeting, thesis views
+  src-tauri/           Rust backend for the Tauri shell
+
+apps/server/
+  src/
+    db/                Schema, connection, migrations, seed data
+    lib/               Generic CRUD helpers, utilities
+    routes/            One file per resource
+
+apps/fe/
+  app/
+    components/        Navbar, word reveal animation
+    sections/          Landing page sections (hero, features, how it works, CTA)
+```
+
+## License
+
+Not yet decided. Reach out if you want to use or build on this.
