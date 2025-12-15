@@ -32,3 +32,36 @@ export default function Navbar() {
         borderBottom: scrolled
           ? "1px solid rgba(255, 255, 255, 0.06)"
           : "1px solid transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+      }}
+    >
+      <div className="flex items-center gap-12 md:gap-20">
+        <div className="flex items-center gap-2">
+          <span className="text-xl font-bold tracking-tight">Rixie</span>
+        </div>
+
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-white transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <motion.button
+        type="button"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        className="bg-white text-black rounded-lg text-sm font-semibold px-4 py-2 hover:opacity-80 transition cursor-pointer"
+      >
+        Request Access
+      </motion.button>
+    </motion.nav>
+  );
+}
