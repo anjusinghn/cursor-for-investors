@@ -25,3 +25,29 @@ export function useDealFull(id?: string) {
     enabled: Boolean(id),
   });
 }
+
+export function useCreateDeal() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: CreateDealInput) => api.deals.create(payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.deals });
+      queryClient.invalidateQueries({ queryKey: queryKeys.pipelineDeals });
+      queryClient.invalidateQueries({ queryKey: queryKeys.pipelineSummary });
+    },
+  });
+}
+
+export function useUpdateDeal(id: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: UpdateDealInput) => api.deals.update(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.deals });
+      queryClient.invalidateQueries({ queryKey: queryKeys.deal(id) });
+      queryClient.invalidateQueries({ queryKey: queryKeys.dealFull(id) });
+      queryClient.invalidateQueries({ queryKey: queryKeys.pipelineDeals });
+      queryClient.invalidateQueries({ queryKey: queryKeys.pipelineSummary });
+    },
+  });
+}
