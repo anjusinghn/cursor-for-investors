@@ -47,3 +47,51 @@ const NAV_ENTRIES: NavEntry[] = [
     icon: Briefcase,
     shortcut: "D",
   },
+  {
+    label: "Go to Thesis",
+    section: "theses",
+    kind: "thesis",
+    icon: Lightbulb,
+    shortcut: "T",
+  },
+  { label: "Go to People", section: "people", kind: "person", icon: Users },
+  {
+    label: "Go to Meetings",
+    section: "meetings",
+    kind: "meeting",
+    icon: Calendar,
+  },
+];
+
+const ACTION_ENTRIES = [
+  { label: "New Deal", value: "new-deal" },
+  { label: "New Meeting Note", value: "new-meeting-note" },
+  { label: "New Memo", value: "new-memo" },
+];
+
+function kindToSection(
+  kind: "deal" | "company" | "person" | "meeting" | "thesis",
+): NavSection {
+  if (kind === "thesis") return "theses";
+  if (kind === "person") return "people";
+  if (kind === "meeting") return "meetings";
+  return "deals";
+}
+
+export function CommandPalette() {
+  const { commandOpen, openTab, setCommandOpen } = useLayout();
+  const { recentItems } = useWorkspace();
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setCommandOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [setCommandOpen]);
+
+  const navigate = (section: NavSection, kind: TabKind, label: string) => {
+    openTab({ id: section, title: label, kind, section });
