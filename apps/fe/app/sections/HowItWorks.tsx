@@ -58,3 +58,63 @@ function FlowConnector({
         {[0, 1, 2].map((dot) => (
           <motion.div
             key={dot}
+            className="w-[3px] h-[3px] rounded-full"
+            style={{
+              backgroundColor: active
+                ? "rgba(255, 255, 255, 0.35)"
+                : "rgba(255, 255, 255, 0.06)",
+            }}
+            animate={
+              inView
+                ? {
+                    opacity: [0.3, 1, 0.3],
+                  }
+                : {}
+            }
+            transition={{
+              duration: 1.8,
+              delay: dot * 0.25 + index * 0.1,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function HowItWorks() {
+  const [active, setActive] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+
+  return (
+    <section
+      id="how-it-works"
+      ref={sectionRef}
+      className="px-8 md:px-28 py-24 md:py-32"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease }}
+        className="mb-14"
+      >
+        <h2 className="text-4xl md:text-5xl font-medium tracking-[-1.5px] mb-4">
+          Five layers,{" "}
+          <span className="font-serif italic font-normal">one</span> system
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-xl">
+          Not a chatbot. A workspace, command layer, memory, and action engine.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        {/* Left: Layer descriptions */}
+        <div className="relative flex flex-col">
+          {layers.map((layer, i) => (
+            <motion.div
+              key={layer.number}
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
