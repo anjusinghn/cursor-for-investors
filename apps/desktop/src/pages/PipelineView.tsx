@@ -51,3 +51,56 @@ export function PipelineView() {
     });
   };
 
+  const grouped = groupDealsByStage(filteredDeals);
+  const totalDeals = Object.values(summary.data ?? {}).reduce((total, count) => total + count, 0);
+
+  return (
+    <div className="list-stack">
+      <section className="data-card">
+        <div className="split-inline">
+          <div>
+            <div className="muted">Pipeline</div>
+            <strong>{totalDeals} active deals</strong>
+          </div>
+          <div className="action-row">
+            <button className="small-action" onClick={() => setViewMode("table")} type="button">
+              Table
+            </button>
+            <button className="small-action" onClick={() => setViewMode("kanban")} type="button">
+              Kanban
+            </button>
+          </div>
+        </div>
+
+        <div className="stats-grid" style={{ marginTop: 12 }}>
+          {stageOrder.slice(0, 5).map((stage) => (
+            <div className="stat-card" key={stage}>
+              <div className="muted">{stage.replace("_", " ")}</div>
+              <strong>{summary.data?.[stage] ?? 0}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="data-card">
+        <div className="toolbar">
+          <div className="toolbar-field">
+            <label>View</label>
+            <select className="select" onChange={(event) => setViewMode(event.target.value as "table" | "kanban")} value={viewMode}>
+              <option value="table">Table</option>
+              <option value="kanban">Kanban</option>
+            </select>
+          </div>
+          <div className="toolbar-field">
+            <label>Stage</label>
+            <select className="select" onChange={(event) => setStageFilter(event.target.value as DealStage | "all")} value={stageFilter}>
+              <option value="all">All stages</option>
+              {stageOrder.map((stage) => (
+                <option key={stage} value={stage}>
+                  {stage}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="toolbar-field">
+            <label>Sort</label>
