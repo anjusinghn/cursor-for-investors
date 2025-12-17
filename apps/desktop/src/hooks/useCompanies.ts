@@ -17,3 +17,22 @@ export function useCompany(id?: string) {
     enabled: Boolean(id),
   });
 }
+
+export function useCreateCompany() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: CreateCompanyInput) => api.companies.create(payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.companies }),
+  });
+}
+
+export function useUpdateCompany(id: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: UpdateCompanyInput) => api.companies.update(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.companies });
+      queryClient.invalidateQueries({ queryKey: queryKeys.company(id) });
+    },
+  });
+}
