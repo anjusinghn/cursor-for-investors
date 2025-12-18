@@ -21,3 +21,25 @@ export function ThesisEditor({ thesisId }: { thesisId?: string }) {
       <section className="data-card">
         <div className="split-inline">
           <div>
+            <div className="muted">Thesis Editor</div>
+            <strong>{thesis.name}</strong>
+          </div>
+          <span className="badge">{thesis.active ? "Active" : "Inactive"}</span>
+        </div>
+      </section>
+      <section className="data-card">
+        <ThesisForm
+          onSave={async (payload) => {
+            await updateThesis.mutateAsync(payload);
+            addRecentItem({
+              id: `thesis:${thesis.id}`,
+              title: thesis.name,
+              kind: "thesis",
+            });
+          }}
+          thesis={thesis}
+        />
+      </section>
+    </div>
+  );
+}
