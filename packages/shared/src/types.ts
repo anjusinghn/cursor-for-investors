@@ -47,3 +47,51 @@ export interface Thesis {
   name: string;
   fundId?: string | null;
   sectors: string[];
+  stages: string[];
+  geographies: string[];
+  ownershipTargetMin?: number | null;
+  ownershipTargetMax?: number | null;
+  preferredFounderPatterns: string[];
+  antiPatterns: string[];
+  diligenceQuestions: string[];
+  active: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Deal {
+  id: string;
+  companyId: string;
+  fundId?: string | null;
+  stage: DealStage;
+  confidence?: number | null;
+  leadPartner?: string | null;
+  source?: string | null;
+  thesisId?: string | null;
+  createdAt: string;
+  updatedAt: string;
+  lastActivityAt: string;
+}
+
+export interface Person {
+  id: string;
+  name: string;
+  email?: string | null;
+  role?: string | null;
+  companyId?: string | null;
+  linkedinUrl?: string | null;
+  relationshipScore?: number | null;
+  lastContactAt?: string | null;
+  tags: PersonTag[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface StructuredMeetingNotes {
+  metrics: Record<string, string>;
+  risks: string[];
+  asks: string[];
+  nextSteps: string[];
+}
+
+export interface Meeting {
