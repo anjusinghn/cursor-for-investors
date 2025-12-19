@@ -25,3 +25,30 @@ yarn-debug.log*
 pnpm-debug.log*
 
 # vercel
+.vercel
+
+# pnpm
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# coverage
+coverage
+
+# Rust build artifacts
+target/
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
