@@ -35,3 +35,39 @@ const differentiators = [
     description:
       "Full audit trail: who changed the memo, who approved the action, what changed since last week.",
   },
+  {
+    icon: Shield,
+    title: "Action Approvals & Audit Logs",
+    description:
+      "Observe, suggest, approve, auto-run. Never send an email or edit a CRM record without a clear review step.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Outcome Feedback Loop",
+    description:
+      "Which signals correlated with real outcomes? The system gets sharper with every decision your firm makes.",
+  },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+export default function Differentiators() {
+  return (
+    <section id="differentiators" className="py-24 md:py-32 px-8 md:px-28">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
