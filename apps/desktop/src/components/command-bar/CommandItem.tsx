@@ -18,3 +18,23 @@ export function CommandItem({
       {Icon ? (
         <Icon size={14} style={{ flexShrink: 0, opacity: 0.65 }} />
       ) : null}
+      <span style={{ flex: 1 }}>{label}</span>
+      {shortcut ? (
+        <span
+          style={{
+            fontSize: 10,
+            background: "oklch(1 0 0 / 0.08)",
+            padding: "1px 5px",
+            borderRadius: 3,
+            border: "1px solid var(--border)",
+            color: "var(--muted-foreground)",
+            flexShrink: 0,
+            fontFamily: "inherit",
+          }}
+        >
+          {shortcut}
+        </span>
+      ) : null}
+    </button>
+  );
+}
