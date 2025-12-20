@@ -17,3 +17,22 @@ export function useThesis(id?: string) {
     enabled: Boolean(id),
   });
 }
+
+export function useCreateThesis() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: CreateThesisInput) => api.theses.create(payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: queryKeys.theses }),
+  });
+}
+
+export function useUpdateThesis(id: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: UpdateThesisInput) => api.theses.update(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.theses });
+      queryClient.invalidateQueries({ queryKey: queryKeys.thesis(id) });
+    },
+  });
+}
