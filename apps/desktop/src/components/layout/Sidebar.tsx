@@ -93,3 +93,50 @@ export function Sidebar() {
               <span style={{ fontSize: 11 }}>No recent items</span>
             </div>
           ) : null}
+          {recentItems.slice(0, 5).map((item) => (
+            <button
+              className="sidebar-item"
+              key={item.id}
+              onClick={() =>
+                openTab({
+                  id: item.id,
+                  title: item.title,
+                  kind: item.kind,
+                  section:
+                    item.kind === "thesis"
+                      ? "theses"
+                      : item.kind === "person"
+                        ? "people"
+                        : item.kind === "meeting"
+                          ? "meetings"
+                          : "deals",
+                })
+              }
+              type="button"
+            >
+              <Clock size={12} />
+              <span
+                style={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {item.title}
+              </span>
+            </button>
+          ))}
+        </SidebarSection>
+
+        <SidebarSection title="Watchlists" defaultOpen>
+          {WATCHLISTS.map((name) => (
+            <button className="sidebar-item" key={name} type="button">
+              <Eye size={12} />
+              <span>{name}</span>
+            </button>
+          ))}
+        </SidebarSection>
+      </div>
+    </aside>
+  );
+}
