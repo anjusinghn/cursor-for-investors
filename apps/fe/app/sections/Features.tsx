@@ -73,3 +73,40 @@ export default function Features() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="mb-14"
       >
+        <h2 className="text-4xl md:text-5xl font-medium tracking-[-1.5px] mb-4">
+          Everything an investor{" "}
+          <span className="font-serif italic font-normal">needs</span>
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-xl">
+          From sourcing to IC memo, one workspace replaces the
+          spreadsheet-and-email chaos.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <motion.div
+              key={feature.title}
+              custom={i}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={cardVariants}
+              whileHover={{ scale: 1.02 }}
+              className="liquid-glass rounded-2xl p-6 cursor-default transition-shadow hover:shadow-[0_0_0_1px_rgba(255,255,255,0.12)]"
+            >
+              <div className="mb-4 w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                <Icon size={20} className="text-foreground" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-base font-semibold mb-2">{feature.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
