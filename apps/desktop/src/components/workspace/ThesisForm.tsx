@@ -103,3 +103,55 @@ export function ThesisForm({
             value={form.ownershipTargetMin ?? 0}
           />
         </div>
+        <div className="field">
+          <label>Ownership Target Max</label>
+          <input
+            className="input"
+            min="0"
+            onChange={(event) =>
+              setForm((current) => ({ ...current, ownershipTargetMax: Number(event.target.value) }))
+            }
+            step="0.01"
+            type="number"
+            value={form.ownershipTargetMax ?? 0}
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label>Preferred Founder Patterns</label>
+        <textarea
+          className="textarea"
+          onChange={(event) =>
+            setForm((current) => ({ ...current, preferredFounderPatterns: splitValues(event.target.value) }))
+          }
+          value={(form.preferredFounderPatterns ?? []).join(", ")}
+        />
+      </div>
+      <div className="field">
+        <label>Anti-patterns</label>
+        <textarea
+          className="textarea"
+          onChange={(event) =>
+            setForm((current) => ({ ...current, antiPatterns: splitValues(event.target.value) }))
+          }
+          value={(form.antiPatterns ?? []).join(", ")}
+        />
+      </div>
+      <div className="field">
+        <label>Diligence Questions</label>
+        <textarea
+          className="textarea"
+          onChange={(event) =>
+            setForm((current) => ({ ...current, diligenceQuestions: splitValues(event.target.value) }))
+          }
+          value={(form.diligenceQuestions ?? []).join(", ")}
+        />
+      </div>
+      <div className="action-row">
+        <button className="primary-action" type="submit">
+          Save Thesis
+        </button>
+      </div>
+    </form>
+  );
+}
