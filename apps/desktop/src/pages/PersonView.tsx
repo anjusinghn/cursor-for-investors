@@ -22,3 +22,26 @@ export function PersonView({ personId }: { personId?: string }) {
   }, [addRecentItem, person]);
 
   if (peopleQuery.isLoading) {
+    return <div className="empty-state">Loading people…</div>;
+  }
+
+  if (!person) {
+    return <div className="empty-state">No people records available.</div>;
+  }
+
+  return (
+    <div className="list-stack">
+      <PersonCard person={person} />
+      <section className="data-card">
+        <div className="muted">Connections</div>
+        <p>
+          {person.name} is currently tagged as {person.tags.join(", ") || "unclassified"} with a relationship score of{" "}
+          {person.relationshipScore ?? "—"}.
+        </p>
+        <p className="muted">
+          Use the command palette to jump between people and the associated company or deal context.
+        </p>
+      </section>
+    </div>
+  );
+}
