@@ -105,3 +105,56 @@ export function MeetingForm({
                 key={person.id}
                 onClick={(event) => {
                   event.preventDefault();
+                  setForm((current) => ({
+                    ...current,
+                    attendees: selected
+                      ? current.attendees.filter((entry) => entry !== person.id)
+                      : [...current.attendees, person.id],
+                  }));
+                }}
+                type="button"
+              >
+                {person.name}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      <div className="field">
+        <label>Raw Notes</label>
+        <textarea
+          className="textarea"
+          onChange={(event) => setForm((current) => ({ ...current, rawNotes: event.target.value }))}
+          value={form.rawNotes}
+        />
+      </div>
+      <div className="meeting-grid">
+        <div className="field">
+          <label>Metrics (one per line: key:value)</label>
+          <textarea
+            className="textarea"
+            onChange={(event) =>
+              setForm((current) => ({
+                ...current,
+                structuredNotes: {
+                  ...current.structuredNotes,
+                  metrics: Object.fromEntries(
+                    splitList(event.target.value).map((line) => {
+                      const [key, ...rest] = line.split(":");
+                      return [key.trim(), rest.join(":").trim()];
+                    }),
+                  ),
+                },
+              }))
+            }
+            value={Object.entries(form.structuredNotes.metrics)
+              .map(([key, value]) => `${key}: ${value}`)
+              .join("\n")}
+          />
+        </div>
+        <div className="field">
+          <label>Risks</label>
+          <textarea
+            className="textarea"
+            onChange={(event) =>
+              setForm((current) => ({
