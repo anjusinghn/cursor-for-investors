@@ -70,3 +70,39 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl tracking-[-2px] font-medium leading-tight md:leading-[1.15] mb-3"
+          >
+            Cursor for{" "}
+            <span className="font-serif italic font-normal">Investors</span>.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg font-normal leading-6 opacity-90 mb-8 text-[var(--hero-subtitle)]"
+          >
+            The operating system for private-market decision work.
+            <br />
+            Source, evaluate, decide, and report — one workspace.
+          </motion.p>
+
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-white text-black rounded-full px-8 py-3.5 text-base font-medium cursor-pointer"
+          >
+            Request Early Access
+          </motion.button>
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--background)] to-transparent z-[4] pointer-events-none" />
+    </section>
+  );
+}
