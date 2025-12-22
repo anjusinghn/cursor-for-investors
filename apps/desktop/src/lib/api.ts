@@ -104,3 +104,56 @@ export const api = {
         method: "POST",
         body: JSON.stringify(data),
       }),
+    update: (id: string, data: UpdateDealInput) =>
+      request<Deal>(`/deals/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+      }),
+    delete: (id: string) =>
+      request<void>(`/deals/${id}`, {
+        method: "DELETE",
+      }),
+  },
+  people: {
+    list: () => request<Person[]>("/people"),
+    get: (id: string) => request<Person>(`/people/${id}`),
+    create: (data: CreatePersonInput) =>
+      request<Person>("/people", {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
+    update: (id: string, data: UpdatePersonInput) =>
+      request<Person>(`/people/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+      }),
+  },
+  meetings: {
+    list: () => request<Meeting[]>("/meetings"),
+    get: (id: string) => request<Meeting>(`/meetings/${id}`),
+    create: (data: CreateMeetingInput) =>
+      request<Meeting>("/meetings", {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
+    update: (id: string, data: UpdateMeetingInput) =>
+      request<Meeting>(`/meetings/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+      }),
+  },
+  memos: {
+    list: () => request<Memo[]>("/memos"),
+    get: (id: string) => request<Memo>(`/memos/${id}`),
+    create: (data: CreateMemoInput) =>
+      request<Memo>("/memos", {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
+    update: (id: string, data: UpdateMemoInput) =>
+      request<Memo>(`/memos/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+      }),
+  },
+  theses: {
