@@ -95,3 +95,51 @@ export function CommandPalette() {
 
   const navigate = (section: NavSection, kind: TabKind, label: string) => {
     openTab({ id: section, title: label, kind, section });
+    setCommandOpen(false);
+  };
+
+  return (
+    <CommandDialog open={commandOpen} onOpenChange={setCommandOpen}>
+      <CommandInput placeholder="Search actions and navigate…" />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+
+        <CommandGroup heading="Navigation">
+          {NAV_ENTRIES.map((entry) => {
+            const Icon = entry.icon;
+            return (
+              <CmdkItem
+                key={entry.section}
+                onSelect={() =>
+                  navigate(
+                    entry.section,
+                    entry.kind,
+                    entry.label.replace("Go to ", ""),
+                  )
+                }
+                value={entry.label}
+              >
+                <Icon size={14} style={{ flexShrink: 0, opacity: 0.65 }} />
+                <span style={{ flex: 1 }}>{entry.label}</span>
+                {entry.shortcut ? (
+                  <span
+                    style={{
+                      fontSize: 10,
+                      background: "oklch(1 0 0 / 0.08)",
+                      padding: "1px 5px",
+                      borderRadius: 3,
+                      border: "1px solid var(--border)",
+                      color: "var(--muted-foreground)",
+                    }}
+                  >
+                    {entry.shortcut}
+                  </span>
+                ) : null}
+              </CmdkItem>
+            );
+          })}
+        </CommandGroup>
+
+        <CommandGroup heading="Actions">
+          {ACTION_ENTRIES.map((entry) => (
+            <CmdkItem
