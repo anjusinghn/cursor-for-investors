@@ -95,3 +95,51 @@ export interface StructuredMeetingNotes {
 }
 
 export interface Meeting {
+  id: string;
+  dealId?: string | null;
+  date: string;
+  attendees: string[];
+  meetingType: MeetingType;
+  rawNotes?: string | null;
+  structuredNotes: StructuredMeetingNotes;
+  createdAt: string;
+}
+
+export interface Memo {
+  id: string;
+  dealId?: string | null;
+  memoType: MemoType;
+  title: string;
+  content?: string | null;
+  status: MemoStatus;
+  author?: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Task {
+  id: string;
+  dealId?: string | null;
+  assignee?: string | null;
+  title: string;
+  description?: string | null;
+  status: TaskStatus;
+  dueDate?: string | null;
+  createdAt: string;
+  completedAt?: string | null;
+}
+
+export interface ActivityEntry {
+  entityType:
+    | "company"
+    | "deal"
+    | "person"
+    | "meeting"
+    | "memo"
+    | "thesis"
+    | "task"
+    | "fund";
+  entityId: string;
+  entityName: string;
+  action: "created" | "updated";
+  timestamp: string;
