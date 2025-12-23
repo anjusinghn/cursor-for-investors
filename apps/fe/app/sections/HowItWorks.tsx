@@ -118,3 +118,63 @@ export default function HowItWorks() {
               key={layer.number}
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.1,
+                ease,
+              }}
+              onMouseEnter={() => setActive(i)}
+              onMouseLeave={() => setActive(null)}
+              className="relative flex gap-6 cursor-default"
+            >
+              <div className="flex flex-col items-center">
+                <div
+                  className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 z-10 transition-all duration-300 ${
+                    active === i
+                      ? "bg-white/10 border border-white/20"
+                      : "liquid-glass"
+                  }`}
+                >
+                  <span className="text-sm font-semibold tabular-nums">
+                    {layer.number}
+                  </span>
+                </div>
+                {i < layers.length - 1 && (
+                  <motion.div
+                    className="w-px flex-1 my-1 bg-border origin-top"
+                    initial={{ scaleY: 0 }}
+                    animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: i * 0.1 + 0.3,
+                      ease,
+                    }}
+                  />
+                )}
+              </div>
+
+              <div
+                className={`transition-opacity duration-300 ${
+                  i < layers.length - 1 ? "pb-10" : "pb-0"
+                } ${active !== null && active !== i ? "opacity-30" : "opacity-100"}`}
+              >
+                <h3 className="text-base font-semibold mb-1.5 leading-tight">
+                  {layer.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {layer.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Right: Architecture stack visualization */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2, ease }}
+          className="hidden lg:block sticky top-32"
+        >
+          <div
+            className="rounded-2xl border border-white/[0.06] relative overflow-hidden p-6"
