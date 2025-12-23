@@ -104,3 +104,55 @@ export function PipelineView() {
           </div>
           <div className="toolbar-field">
             <label>Sort</label>
+            <select className="select" onChange={(event) => setSortBy(event.target.value as SortMode)} value={sortBy}>
+              <option value="activity">Last activity</option>
+              <option value="confidence">Confidence</option>
+              <option value="name">Company name</option>
+            </select>
+          </div>
+        </div>
+
+        {viewMode === "table" ? (
+          filteredDeals.length === 0 ? (
+            <div className="empty-state">No deals yet. Create your first deal with Ctrl+K.</div>
+          ) : (
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Stage</th>
+                  <th>Last Touch</th>
+                  <th>Confidence</th>
+                  <th>Lead Partner</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredDeals.map((deal) => (
+                  <tr key={deal.id} onClick={() => openDeal(deal)} style={{ cursor: "pointer" }}>
+                    <td>
+                      <strong>{deal.company.name}</strong>
+                    </td>
+                    <td>
+                      <StageBadge stage={deal.stage} />
+                    </td>
+                    <td>{formatRelativeDate(deal.lastActivityAt)}</td>
+                    <td>
+                      <ConfidenceBadge value={deal.confidence} />
+                    </td>
+                    <td>{deal.leadPartner ?? "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )
+        ) : (
+          <div className="kanban-grid">
+            {stageOrder.map((stage) => (
+              <StageColumn deals={grouped[stage]} key={stage} onOpen={openDeal} stage={stage} />
+            ))}
+          </div>
+        )}
+      </section>
+    </div>
+  );
+}
