@@ -158,3 +158,56 @@ export function MeetingForm({
             className="textarea"
             onChange={(event) =>
               setForm((current) => ({
+                ...current,
+                structuredNotes: {
+                  ...current.structuredNotes,
+                  risks: splitList(event.target.value),
+                },
+              }))
+            }
+            value={form.structuredNotes.risks.join("\n")}
+          />
+        </div>
+      </div>
+      <div className="meeting-grid">
+        <div className="field">
+          <label>Asks</label>
+          <textarea
+            className="textarea"
+            onChange={(event) =>
+              setForm((current) => ({
+                ...current,
+                structuredNotes: {
+                  ...current.structuredNotes,
+                  asks: splitList(event.target.value),
+                },
+              }))
+            }
+            value={form.structuredNotes.asks.join("\n")}
+          />
+        </div>
+        <div className="field">
+          <label>Next Steps</label>
+          <textarea
+            className="textarea"
+            onChange={(event) =>
+              setForm((current) => ({
+                ...current,
+                structuredNotes: {
+                  ...current.structuredNotes,
+                  nextSteps: splitList(event.target.value),
+                },
+              }))
+            }
+            value={form.structuredNotes.nextSteps.join("\n")}
+          />
+        </div>
+      </div>
+      <div className="action-row">
+        <button className="primary-action" type="submit">
+          Save Meeting
+        </button>
+      </div>
+    </form>
+  );
+}
