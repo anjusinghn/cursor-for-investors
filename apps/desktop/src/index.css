@@ -139,3 +139,50 @@
     height: 100%;
   }
   ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(1 0 0 / 0.1);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(1 0 0 / 0.18);
+  }
+}
+
+/* Glass card effect for panels */
+.liquid-glass {
+  background: oklch(1 0 0 / 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(1 0 0 / 0.06);
+}
+
+/* Panel resize handles */
+.resize-handle {
+  position: relative;
+  background: transparent;
+}
+.resize-handle[data-panel-group-direction="horizontal"] {
+  width: 8px;
+}
+.resize-handle[data-panel-group-direction="vertical"] {
+  height: 8px;
+}
+.resize-handle::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 999px;
+  background: oklch(1 0 0 / 0.04);
+}
+
+/* Dockview overrides for dark terminal aesthetic */
+.dv-react-container {
+  --dv-paneview-header-border-color: var(--border);
+  --dv-separator-border: var(--border);
+  --dv-background-color: var(--background);
+}
