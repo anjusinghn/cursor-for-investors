@@ -178,3 +178,63 @@ export default function HowItWorks() {
         >
           <div
             className="rounded-2xl border border-white/[0.06] relative overflow-hidden p-6"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 50% 0%, rgba(120, 119, 198, 0.04) 0%, transparent 60%)",
+            }}
+          >
+            <div
+              className="absolute inset-0 pointer-events-none opacity-40"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px)",
+                backgroundSize: "20px 20px",
+              }}
+            />
+
+            {/* Diagram label */}
+            <div className="relative mb-5 flex items-center gap-3">
+              <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+              <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-white/20">
+                System Architecture
+              </span>
+            </div>
+
+            {/* Layer stack */}
+            <div className="relative flex flex-col">
+              {layers.map((layer, i) => (
+                <div key={layer.number}>
+                  <motion.div
+                    initial={{ opacity: 0, x: 16 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{
+                      duration: 0.45,
+                      delay: i * 0.08 + 0.4,
+                      ease,
+                    }}
+                    onHoverStart={() => setActive(i)}
+                    onHoverEnd={() => setActive(null)}
+                  >
+                    <div
+                      className={`relative flex items-center gap-4 px-4 py-3.5 rounded-lg cursor-default transition-all duration-300 ${
+                        active === i
+                          ? "bg-white/[0.08] shadow-[0_0_30px_rgba(255,255,255,0.03)]"
+                          : active !== null
+                            ? "opacity-35"
+                            : "hover:bg-white/[0.03]"
+                      }`}
+                      style={{
+                        transform:
+                          active === null
+                            ? "translateY(0)"
+                            : active === i
+                              ? "translateY(0)"
+                              : i < active
+                                ? "translateY(-5px)"
+                                : "translateY(5px)",
+                      }}
+                    >
+                      <div
+                        className={`w-[2px] self-stretch min-h-[28px] rounded-full transition-all duration-300 ${
+                          active === i ? "bg-white/40" : "bg-white/[0.08]"
+                        }`}
