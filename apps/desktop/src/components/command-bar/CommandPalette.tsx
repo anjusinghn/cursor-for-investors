@@ -143,3 +143,51 @@ export function CommandPalette() {
         <CommandGroup heading="Actions">
           {ACTION_ENTRIES.map((entry) => (
             <CmdkItem
+              key={entry.value}
+              onSelect={() => {
+                console.log(entry.label);
+                setCommandOpen(false);
+              }}
+              value={entry.label}
+            >
+              <Plus size={14} style={{ flexShrink: 0, opacity: 0.65 }} />
+              <span>{entry.label}</span>
+            </CmdkItem>
+          ))}
+        </CommandGroup>
+
+        {recentItems.length > 0 ? (
+          <CommandGroup heading="Recent">
+            {recentItems.slice(0, 3).map((item) => (
+              <CmdkItem
+                key={item.id}
+                onSelect={() => {
+                  openTab({
+                    id: item.id,
+                    title: item.title,
+                    kind: item.kind,
+                    section: kindToSection(item.kind),
+                  });
+                  setCommandOpen(false);
+                }}
+                value={item.title}
+              >
+                <Clock size={14} style={{ flexShrink: 0, opacity: 0.65 }} />
+                <span style={{ flex: 1 }}>{item.title}</span>
+                <span
+                  style={{
+                    fontSize: 10,
+                    color: "var(--muted-foreground)",
+                    flexShrink: 0,
+                  }}
+                >
+                  {item.kind}
+                </span>
+              </CmdkItem>
+            ))}
+          </CommandGroup>
+        ) : null}
+      </CommandList>
+    </CommandDialog>
+  );
+}
