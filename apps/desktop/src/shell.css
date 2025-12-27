@@ -182,3 +182,64 @@
   background: oklch(1 0 0 / 0.1);
   color: var(--foreground);
 }
+
+.tab-body {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+.bottom-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: oklch(0.09 0.002 286);
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  min-height: 36px;
+}
+
+.status-bar {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  font-size: 11px;
+  background: oklch(0.07 0.002 286);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.status-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted-foreground);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: oklch(0 0 0 / 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 14vh;
+}
+
+.modal-panel {
+  width: 90vw;
+  max-width: 560px;
+  border-radius: 10px;
+  background: oklch(0.1 0.002 286);
