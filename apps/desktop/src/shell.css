@@ -243,3 +243,65 @@
   max-width: 560px;
   border-radius: 10px;
   background: oklch(0.1 0.002 286);
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 70px oklch(0 0 0 / 0.6);
+  overflow: hidden;
+}
+
+.modal-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  font-size: 14px;
+  color: var(--foreground);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  outline: none;
+}
+
+.modal-input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.modal-results {
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 6px 0;
+}
+
+.command-group-label {
+  padding: 8px 14px 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.command-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: var(--foreground);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.command-item:hover {
+  background: oklch(1 0 0 / 0.05);
+}
+
+[cmdk-overlay] {
+  position: fixed;
+  inset: 0;
+  background: oklch(0 0 0 / 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+}
+
