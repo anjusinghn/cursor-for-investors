@@ -691,3 +691,73 @@
           "type": "string",
           "const": "core:menu:default",
           "markdownDescription": "Default permissions for the plugin, which enables all commands.\n#### This default permission set includes:\n\n- `allow-new`\n- `allow-append`\n- `allow-prepend`\n- `allow-insert`\n- `allow-remove`\n- `allow-remove-at`\n- `allow-items`\n- `allow-get`\n- `allow-popup`\n- `allow-create-default`\n- `allow-set-as-app-menu`\n- `allow-set-as-window-menu`\n- `allow-text`\n- `allow-set-text`\n- `allow-is-enabled`\n- `allow-set-enabled`\n- `allow-set-accelerator`\n- `allow-set-as-windows-menu-for-nsapp`\n- `allow-set-as-help-menu-for-nsapp`\n- `allow-is-checked`\n- `allow-set-checked`\n- `allow-set-icon`"
+        },
+        {
+          "description": "Enables the append command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-append",
+          "markdownDescription": "Enables the append command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the create_default command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-create-default",
+          "markdownDescription": "Enables the create_default command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the get command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-get",
+          "markdownDescription": "Enables the get command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the insert command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-insert",
+          "markdownDescription": "Enables the insert command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the is_checked command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-is-checked",
+          "markdownDescription": "Enables the is_checked command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the is_enabled command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-is-enabled",
+          "markdownDescription": "Enables the is_enabled command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the items command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-items",
+          "markdownDescription": "Enables the items command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the new command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-new",
+          "markdownDescription": "Enables the new command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the popup command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-popup",
+          "markdownDescription": "Enables the popup command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the prepend command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-prepend",
+          "markdownDescription": "Enables the prepend command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the remove command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:menu:allow-remove",
+          "markdownDescription": "Enables the remove command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the remove_at command without any pre-configured scope.",
+          "type": "string",
