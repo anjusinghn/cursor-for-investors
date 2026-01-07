@@ -969,3 +969,72 @@
           "markdownDescription": "Enables the basename command without any pre-configured scope."
         },
         {
+          "description": "Enables the dirname command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:allow-dirname",
+          "markdownDescription": "Enables the dirname command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the extname command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:allow-extname",
+          "markdownDescription": "Enables the extname command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the is_absolute command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:allow-is-absolute",
+          "markdownDescription": "Enables the is_absolute command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the join command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:allow-join",
+          "markdownDescription": "Enables the join command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the normalize command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:allow-normalize",
+          "markdownDescription": "Enables the normalize command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the resolve command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:allow-resolve",
+          "markdownDescription": "Enables the resolve command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the resolve_directory command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:allow-resolve-directory",
+          "markdownDescription": "Enables the resolve_directory command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the basename command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:deny-basename",
+          "markdownDescription": "Denies the basename command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the dirname command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:deny-dirname",
+          "markdownDescription": "Denies the dirname command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the extname command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:deny-extname",
+          "markdownDescription": "Denies the extname command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the is_absolute command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:deny-is-absolute",
+          "markdownDescription": "Denies the is_absolute command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the join command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:deny-join",
