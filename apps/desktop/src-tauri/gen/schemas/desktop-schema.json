@@ -1038,3 +1038,72 @@
           "description": "Denies the join command without any pre-configured scope.",
           "type": "string",
           "const": "core:path:deny-join",
+          "markdownDescription": "Denies the join command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the normalize command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:deny-normalize",
+          "markdownDescription": "Denies the normalize command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the resolve command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:deny-resolve",
+          "markdownDescription": "Denies the resolve command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the resolve_directory command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:path:deny-resolve-directory",
+          "markdownDescription": "Denies the resolve_directory command without any pre-configured scope."
+        },
+        {
+          "description": "Default permissions for the plugin, which enables all commands.\n#### This default permission set includes:\n\n- `allow-close`",
+          "type": "string",
+          "const": "core:resources:default",
+          "markdownDescription": "Default permissions for the plugin, which enables all commands.\n#### This default permission set includes:\n\n- `allow-close`"
+        },
+        {
+          "description": "Enables the close command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:resources:allow-close",
+          "markdownDescription": "Enables the close command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the close command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:resources:deny-close",
+          "markdownDescription": "Denies the close command without any pre-configured scope."
+        },
+        {
+          "description": "Default permissions for the plugin, which enables all commands.\n#### This default permission set includes:\n\n- `allow-new`\n- `allow-get-by-id`\n- `allow-remove-by-id`\n- `allow-set-icon`\n- `allow-set-menu`\n- `allow-set-tooltip`\n- `allow-set-title`\n- `allow-set-visible`\n- `allow-set-temp-dir-path`\n- `allow-set-icon-as-template`\n- `allow-set-show-menu-on-left-click`",
+          "type": "string",
+          "const": "core:tray:default",
+          "markdownDescription": "Default permissions for the plugin, which enables all commands.\n#### This default permission set includes:\n\n- `allow-new`\n- `allow-get-by-id`\n- `allow-remove-by-id`\n- `allow-set-icon`\n- `allow-set-menu`\n- `allow-set-tooltip`\n- `allow-set-title`\n- `allow-set-visible`\n- `allow-set-temp-dir-path`\n- `allow-set-icon-as-template`\n- `allow-set-show-menu-on-left-click`"
+        },
+        {
+          "description": "Enables the get_by_id command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:tray:allow-get-by-id",
+          "markdownDescription": "Enables the get_by_id command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the new command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:tray:allow-new",
+          "markdownDescription": "Enables the new command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the remove_by_id command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:tray:allow-remove-by-id",
+          "markdownDescription": "Enables the remove_by_id command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_icon command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:tray:allow-set-icon",
+          "markdownDescription": "Enables the set_icon command without any pre-configured scope."
+        },
+        {
