@@ -1592,3 +1592,73 @@
           "const": "core:window:allow-maximize",
           "markdownDescription": "Enables the maximize command without any pre-configured scope."
         },
+        {
+          "description": "Enables the minimize command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-minimize",
+          "markdownDescription": "Enables the minimize command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the monitor_from_point command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-monitor-from-point",
+          "markdownDescription": "Enables the monitor_from_point command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the outer_position command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-outer-position",
+          "markdownDescription": "Enables the outer_position command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the outer_size command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-outer-size",
+          "markdownDescription": "Enables the outer_size command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the primary_monitor command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-primary-monitor",
+          "markdownDescription": "Enables the primary_monitor command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the request_user_attention command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-request-user-attention",
+          "markdownDescription": "Enables the request_user_attention command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the scale_factor command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-scale-factor",
+          "markdownDescription": "Enables the scale_factor command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_always_on_bottom command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-always-on-bottom",
+          "markdownDescription": "Enables the set_always_on_bottom command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_always_on_top command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-always-on-top",
+          "markdownDescription": "Enables the set_always_on_top command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_background_color command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-background-color",
+          "markdownDescription": "Enables the set_background_color command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_badge_count command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-badge-count",
+          "markdownDescription": "Enables the set_badge_count command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_badge_label command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-badge-label",
