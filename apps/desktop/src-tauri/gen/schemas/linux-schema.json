@@ -1662,3 +1662,72 @@
           "description": "Enables the set_badge_label command without any pre-configured scope.",
           "type": "string",
           "const": "core:window:allow-set-badge-label",
+          "markdownDescription": "Enables the set_badge_label command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_closable command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-closable",
+          "markdownDescription": "Enables the set_closable command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_content_protected command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-content-protected",
+          "markdownDescription": "Enables the set_content_protected command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_cursor_grab command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-cursor-grab",
+          "markdownDescription": "Enables the set_cursor_grab command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_cursor_icon command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-cursor-icon",
+          "markdownDescription": "Enables the set_cursor_icon command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_cursor_position command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-cursor-position",
+          "markdownDescription": "Enables the set_cursor_position command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_cursor_visible command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-cursor-visible",
+          "markdownDescription": "Enables the set_cursor_visible command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_decorations command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-decorations",
+          "markdownDescription": "Enables the set_decorations command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_effects command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-effects",
+          "markdownDescription": "Enables the set_effects command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_enabled command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-enabled",
+          "markdownDescription": "Enables the set_enabled command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_focus command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-focus",
+          "markdownDescription": "Enables the set_focus command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the set_focusable command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:allow-set-focusable",
+          "markdownDescription": "Enables the set_focusable command without any pre-configured scope."
+        },
+        {
