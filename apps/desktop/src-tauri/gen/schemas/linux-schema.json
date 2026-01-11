@@ -2147,3 +2147,72 @@
         {
           "description": "Denies the set_cursor_position command without any pre-configured scope.",
           "type": "string",
+          "const": "core:window:deny-set-cursor-position",
+          "markdownDescription": "Denies the set_cursor_position command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_cursor_visible command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-cursor-visible",
+          "markdownDescription": "Denies the set_cursor_visible command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_decorations command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-decorations",
+          "markdownDescription": "Denies the set_decorations command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_effects command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-effects",
+          "markdownDescription": "Denies the set_effects command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_enabled command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-enabled",
+          "markdownDescription": "Denies the set_enabled command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_focus command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-focus",
+          "markdownDescription": "Denies the set_focus command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_focusable command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-focusable",
+          "markdownDescription": "Denies the set_focusable command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_fullscreen command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-fullscreen",
+          "markdownDescription": "Denies the set_fullscreen command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_icon command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-icon",
+          "markdownDescription": "Denies the set_icon command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_ignore_cursor_events command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-ignore-cursor-events",
+          "markdownDescription": "Denies the set_ignore_cursor_events command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_max_size command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-max-size",
+          "markdownDescription": "Denies the set_max_size command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_maximizable command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-maximizable",
+          "markdownDescription": "Denies the set_maximizable command without any pre-configured scope."
+        },
