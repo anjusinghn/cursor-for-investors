@@ -2216,3 +2216,72 @@
           "const": "core:window:deny-set-maximizable",
           "markdownDescription": "Denies the set_maximizable command without any pre-configured scope."
         },
+        {
+          "description": "Denies the set_min_size command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-min-size",
+          "markdownDescription": "Denies the set_min_size command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_minimizable command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-minimizable",
+          "markdownDescription": "Denies the set_minimizable command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_overlay_icon command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-overlay-icon",
+          "markdownDescription": "Denies the set_overlay_icon command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_position command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-position",
+          "markdownDescription": "Denies the set_position command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_progress_bar command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-progress-bar",
+          "markdownDescription": "Denies the set_progress_bar command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_resizable command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-resizable",
+          "markdownDescription": "Denies the set_resizable command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_shadow command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-shadow",
+          "markdownDescription": "Denies the set_shadow command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_simple_fullscreen command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-simple-fullscreen",
+          "markdownDescription": "Denies the set_simple_fullscreen command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_size command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-size",
+          "markdownDescription": "Denies the set_size command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_size_constraints command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-size-constraints",
+          "markdownDescription": "Denies the set_size_constraints command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_skip_taskbar command without any pre-configured scope.",
+          "type": "string",
+          "const": "core:window:deny-set-skip-taskbar",
+          "markdownDescription": "Denies the set_skip_taskbar command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the set_theme command without any pre-configured scope.",
+          "type": "string",
